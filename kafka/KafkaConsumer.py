@@ -12,7 +12,7 @@ from kafka.KafkaBase import KafkaBase
 
 
 class KafkaConsumer(KafkaBase):
-    def init(self, topic, groupid, consumer_timeout=0, auto_offset_reset=OffsetType.LATEST, balance=True):
+    def init(self, topic, groupid, consumer_timeout=0, auto_offset_reset=OffsetType.LATEST, balance=False):
         try:
             if topic is None:
                 return False

@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # @File  : MainServer.py
 # @Author: Liaop
-# @Date  : 2018-11-14
-# @Desc  : 主服务程序，处理IP绑定、监听和消息获取等
+# @Desc  : 主服务程序，处理IP
+# # @Date  : 2018-11-14绑定、监听和消息获取等
 
 import socket
 import select
@@ -84,7 +84,7 @@ class MainServer(object):
         try:
             for topic in topics:
                 consumer = KafkaConsumer(config.kafka_hosts, self._logger)
-                if consumer.init(topic, 'gp.{}'.format(topic), balance=False):
+                if consumer.init(topic, 'gp.{}'.format(topic)):
                     self._consumer_queue[topic] = Queue()
                     th = Thread(target=consumer.consume, args=(self._consumer_queue[topic],))
                     th.start()
